@@ -5,6 +5,7 @@
 #include "Queue.h"
 using namespace std;
 
+//funciones
 void juego1(int n);
 void juego2(int n);
 void mostrar(Stack &storeRandom, int n);
