@@ -61,11 +61,11 @@ void juego2(int n)
 {
 	int score;
 	int comenzar;
-	Queue storeRandom;
+	Stack storeRandom;
 	cout << "presione un numero para comenzar" << endl;
 	cin >> comenzar;
 	score = mostrar2(storeRandom,n);
-	storeRandom.startQueue();
+	storeRandom.startStack();
 	cout << "tu score es de: " << score << endl;
 
 }
@@ -80,7 +80,7 @@ int mostrar(Queue &storeRandom, int n)
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(1, n); //genera un numero random de entre 1 y n 
 	Queue temp;
-	While(win)
+	while(win)
 	{
 		storeRandom.enQueue(dis(gen)); //guarda los numeros random dentro de el Stack NO ESTOY DEL TODO SEGURO QUE SI SE PUEDA HACER ESTO LOL
 		while(!storeRandom.isEmpty())
@@ -104,6 +104,37 @@ int mostrar(Queue &storeRandom, int n)
 	return score;
 }
 
+int mostrar2(Stack &storeRandom, int n)
+{
+	int score = 0;
+	bool win = true;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dis(1, n);
+	Stack temp;
+	while(win)
+	{
+		storeRandom.push(dis(gen));
+		while(!storeRandom.isEmpty())
+		{
+			cout << storeRandom.peek();
+			temp.push(storeRandom.pop());
+		}
+		cout << "tu turno pon los numeros al revez" << endl;
+		if(comprobar2(temp))
+			score++;
+		else
+		{
+			cout << "perdiste" << endl;
+			win = false;
+		}
+		while(!temp.isEmpty())
+		{
+			storeRandom.push(temp.pop());
+		}
+	}
+	return score;
+}
 
 //aqui es donde se reciviria el input de parte del GUI y se comprobaria si esta bien o mal
 bool comprobar(Queue &storeRandom)
@@ -114,13 +145,7 @@ bool comprobar(Queue &storeRandom)
 	{
 		cin >> x; // aqui iria la relacion del click con un numero, este metodo regresaria un numero que se guardaria en equis algo asi x = metodocongui(); 
 		if(x != storeRandom.Front())
-		{
-			while(!temp.isEmpty())
-			{
-				storeRandom.enQueue(temp.deQueue());
-			}
 			return false; //esto haria que en cuanto se equivoke la persona perderia 
-		}
 		temp.enQueue(storeRandom.deQueue());
 	}
 	while(!temp.isEmpty())
@@ -130,3 +155,20 @@ bool comprobar(Queue &storeRandom)
 	return true;
 }
 
+bool comprobar2(Stack &storeRandom)
+{
+	Stack temp;
+	int x;
+	while(!storeRandom.isEmpty)
+	{
+		cin >> x; 
+		if(x !- storeRandom.peek())
+			return false;
+		temp.push(storeRandom.pop());
+	}
+	while(!temp.isEmpty())
+	{
+		storeRandom.push(temp.pop());
+	}
+	return true;
+}
