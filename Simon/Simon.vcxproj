@@ -71,9 +71,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="algo.h" />
+    <ClInclude Include="Clasico.h" />
+    <ClInclude Include="Inicio.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Tamano.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -83,12 +89,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Clasico.cpp" />
+    <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Tamano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clasico.resx" />
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tamano.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

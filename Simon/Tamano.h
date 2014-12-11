@@ -12,7 +12,6 @@ namespace Simon {
 	/// <summary>
 	/// Summary for Tamano
 	/// </summary>
-	int opcion;
 	public ref class Tamano : public System::Windows::Forms::Form
 	{
 	public:
@@ -22,7 +21,7 @@ namespace Simon {
 			//
 			//TODO: Add the constructor code here
 			//
-			opcion = n;
+			
 		}
 
 	protected:
@@ -105,16 +104,7 @@ namespace Simon {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 switch (opcion)
-				 {
-				 case 1:
-					 break;
-				 case 2:
-					 break;
-				 case 3:
-					 break;
-				 case 4:
-				 }
+				 
 	}
 	};
 }
