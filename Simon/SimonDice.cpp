@@ -53,7 +53,7 @@ void juego1(int n)
     cout << "presione un numero para comensar" << endl;
     cin >> comenzar; //simula el boton de comenzar
     score = mostrar(storeRandom,n); 
-    storeRandom.startStack();
+    storeRandom.startQueue();
     cout << "tu score es de:" << score << endl;
 }
 
@@ -65,7 +65,8 @@ void juego2(int n)
 	cout << "presione un numero para comenzar" << endl;
 	cin >> comenzar;
 	score = mostrar2(storeRandom,n);
-	storeRandom
+	storeRandom.startQueue();
+	cout << "tu score es de: " << score << endl;
 
 }
 
