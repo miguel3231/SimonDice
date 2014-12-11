@@ -1,5 +1,13 @@
 #pragma once
 #include "Clasico.h"
+#include "Clasico2.h"
+#include "Bounce.h"
+#include "Bounce2.h"
+#include "Surprise.h"
+#include "Surprise2.h"
+#include "Rewind.h"
+#include "Rewind2.h"
+
 namespace Simon {
 
 	using namespace System;
@@ -76,7 +84,7 @@ namespace Simon {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(60, 52);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"2 x 2";
+			this->button1->Text = L"2x2";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Tamano::button1_Click);
 			// 
@@ -86,8 +94,9 @@ namespace Simon {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(132, 117);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"16 x 16";
+			this->button2->Text = L"4 x 4";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Tamano::button2_Click);
 			// 
 			// Tamano
 			// 
@@ -105,20 +114,48 @@ namespace Simon {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 Clasico^ clasico1 = gcnew Clasico();
+				 Clasico^ clasico = gcnew Clasico();
+				 Bounce^ bounce = gcnew Bounce();
+				 Surprise^ surprise = gcnew Surprise();
+				 Rewind^ rewind = gcnew Rewind();
 				 switch (opcion)
 				 {
 				 case 1:
-					 clasico1->Show();
+					 clasico->Show();
 					 break;
 				 case 2:
+					 bounce->Show();
 					 break;
 				 case 3:
+					 surprise->Show();
 					 break;
 				 case 4:
+					 rewind->Show();
 					 break;
 
 				 }
 	}
-	};
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Clasico2^ clasico = gcnew Clasico2();
+				 Bounce2^ bounce = gcnew Bounce2();
+				 Surprise2^ surprise = gcnew Surprise2();
+				 Rewind2^ rewind = gcnew Rewind2();
+				 switch (opcion)
+				 {
+				 case 1:
+					 clasico->Show();
+					 break;
+				 case 2:
+					 bounce->Show();
+					 break;
+				 case 3:
+					 surprise->Show();
+					 break;
+				 case 4:
+					 rewind->Show();
+					 break;
+
+				 }
+	}
+};
 }

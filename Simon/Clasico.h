@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 namespace Simon {
 
@@ -80,6 +81,7 @@ namespace Simon {
 			this->button1->Size = System::Drawing::Size(63, 56);
 			this->button1->TabIndex = 1;
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &Clasico::button1_Click);
 			// 
 			// button2
 			// 
@@ -121,10 +123,16 @@ namespace Simon {
 			this->Controls->Add(this->label1);
 			this->Name = L"Clasico";
 			this->Text = L"Clasico";
+			this->Load += gcnew System::EventHandler(this, &Clasico::Clasico_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 button4->Location = System::Drawing::Point(202, 151);
+	}
+private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+};
 }

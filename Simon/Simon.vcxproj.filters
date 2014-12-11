@@ -30,6 +30,27 @@
     <ClInclude Include="Node.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Clasico2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bounce.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bounce2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Surprise.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Surprise2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rewind.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rewind2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -41,9 +62,36 @@
     <ClCompile Include="Clasico.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Clasico2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bounce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bounce2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Surprise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Surprise2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rewind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rewind2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clasico.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tamano.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -72,13 +72,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="algo.h" />
+    <ClInclude Include="Bounce.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Bounce2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Clasico.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Clasico2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Rewind.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Rewind2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Surprise.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Surprise2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Tamano.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -91,16 +112,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bounce.cpp" />
+    <ClCompile Include="Bounce2.cpp" />
     <ClCompile Include="Clasico.cpp" />
+    <ClCompile Include="Clasico2.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Rewind.cpp" />
+    <ClCompile Include="Rewind2.cpp" />
+    <ClCompile Include="Surprise.cpp" />
+    <ClCompile Include="Surprise2.cpp" />
     <ClCompile Include="Tamano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Bounce.resx">
+      <DependentUpon>Bounce.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bounce2.resx">
+      <DependentUpon>Bounce2.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clasico.resx">
       <DependentUpon>Clasico.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clasico2.resx">
+      <DependentUpon>Clasico2.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rewind.resx">
+      <DependentUpon>Rewind.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rewind2.resx">
+      <DependentUpon>Rewind2.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Surprise.resx">
+      <DependentUpon>Surprise.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Surprise2.resx">
+      <DependentUpon>Surprise2.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tamano.resx">
       <DependentUpon>Tamano.h</DependentUpon>
