@@ -6,9 +6,10 @@
 using namespace std;
 
 void juego1(int n);
-void mostrar(Stack &storeRandom, int n)
-bool comprobar(Stack &storeRandom, int n)
-void juego2();
+void juego2(int n);
+void mostrar(Stack &storeRandom, int n);
+void mostrar2(Queue &storeRandom, int n);
+bool comprobar(Stack &storeRandom, int n);
 
 int main()
 {
