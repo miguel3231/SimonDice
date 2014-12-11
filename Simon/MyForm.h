@@ -11,7 +11,7 @@ namespace Simon {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Summary for MyForm
+	/// Página de inicio para el juego
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{

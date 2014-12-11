@@ -78,6 +78,7 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Tamano.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -95,6 +96,9 @@
     <ClCompile Include="Tamano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Clasico.resx">
+      <DependentUpon>Clasico.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>

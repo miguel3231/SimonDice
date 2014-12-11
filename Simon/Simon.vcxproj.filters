@@ -27,6 +27,9 @@
     <ClInclude Include="Clasico.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
