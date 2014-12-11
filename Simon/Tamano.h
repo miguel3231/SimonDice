@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Clasico.h"
 namespace Simon {
 
 	using namespace System;
@@ -15,13 +15,14 @@ namespace Simon {
 	public ref class Tamano : public System::Windows::Forms::Form
 	{
 	public:
+		int opcion;
 		Tamano(int n)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
-			
+			opcion = n;
 		}
 
 	protected:
@@ -104,7 +105,20 @@ namespace Simon {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 
+				 Clasico^ clasico1 = gcnew Clasico();
+				 switch (opcion)
+				 {
+				 case 1:
+					 clasico1->Show();
+					 break;
+				 case 2:
+					 break;
+				 case 3:
+					 break;
+				 case 4:
+					 break;
+
+				 }
 	}
 	};
 }
