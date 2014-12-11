@@ -1,4 +1,5 @@
 #pragma once
+#include "Tamano.h"
 
 namespace Simon {
 
@@ -88,6 +89,7 @@ namespace Simon {
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"Simon Clasico";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
@@ -97,6 +99,7 @@ namespace Simon {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Simon Brinca";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
 			// 
 			// button3
 			// 
@@ -106,6 +109,7 @@ namespace Simon {
 			this->button3->TabIndex = 1;
 			this->button3->Text = L"Simon Sorpresa";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button4
 			// 
@@ -115,6 +119,7 @@ namespace Simon {
 			this->button4->TabIndex = 1;
 			this->button4->Text = L"Simon en Reversa";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// pictureBox1
 			// 
@@ -139,6 +144,7 @@ namespace Simon {
 			this->Controls->Add(this->label1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -149,5 +155,25 @@ namespace Simon {
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			 Tamano^ forma = gcnew Tamano(1);
+			 forma->Show();
+}
+		 
+private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 Tamano^ forma = gcnew Tamano(2);
+			 forma->Show();
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Tamano^ forma = gcnew Tamano(3);
+			 forma->Show();
+}
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Tamano^ forma = gcnew Tamano(4);
+			 forma->Show();
+}
 };
 }
