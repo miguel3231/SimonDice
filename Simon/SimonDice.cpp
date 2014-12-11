@@ -6,15 +6,15 @@
 using namespace std;
 
 //funciones
-void juego1(int n);
+void juego1(int n); //ya esta
 void juego2(int n);
-void mostrar(Stack &storeRandom, int n);
+void mostrar(Queue &storeRandom, int n); //ya esta
 void mostrar2(Queue &storeRandom, int n);
-bool comprobar(Stack &storeRandom, int n);
+bool comprobar(Queue &storeRandom); // ya esta
 
 int main()
 {
-	int x;
+	int x; 
 	do
 	{
 		cout << "1) 2x2" << endl;
@@ -47,118 +47,84 @@ int main()
 
 void juego1(int n)
 {
+	int score;
 	int comenzar; //esto es nadamas para simular un boton de comenzar
-	Stack storeRandom; //Stack donde se guardaran los numeros
-	std::random_device rd; //falta comprobar que el random number funcione bien 
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, n); //genera un numero random de entre 1 y n 
-    for(int i = 0; i < n; i++)
-    	storeRandom.push(dis(gen)); //guarda los numeros random dentro de el Stack NO ESTOY DEL TODO SEGURO QUE SI SE PUEDA HACER ESTO LOL
+	Queue storeRandom; //Stack donde se guardaran los numeros
     cout << "presione un numero para comensar" << endl;
     cin >> comenzar; //simula el boton de comenzar
-    mostrar(storeRandom,n); 
+    score = mostrar(storeRandom,n); 
     storeRandom.startStack();
+    cout << "tu score es de:" << score << endl;
 }
 
 void juego2(int n)
 {
+	int score;
 	int comenzar;
 	Queue storeRandom;
+	cout << "presione un numero para comenzar" << endl;
+	cin >> comenzar;
+	score = mostrar2(storeRandom,n);
+	storeRandom
+
+}
+
+
+//este metodo imprime los numeros que estan en orden (con GUI deberia prender los botones)
+int mostrar(Queue &storeRandom, int n)
+{	
+	int score = 0;
+	bool win = true;
 	std::random_device rd; //falta comprobar que el random number funcione bien 
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(1, n); //genera un numero random de entre 1 y n 
-	for(int i = 0; i < n; i++)
-    	storeRandom.enQueue(dis(gen)); //guarda los numeros random dentro de el Stack NO ESTOY DEL TODO SEGURO QUE SI SE PUEDA HACER ESTO LOL
-    cout << "presione un numero para comenzar" << endl;
-    cin >> comenzar;
-    mostrar2(storeRandom,n);
-    storeRandom.startQueue();
-}
-
-//este metodo imprime los numeros que estan en orden pero manda los datos al revez para que la persona le de click al revez
-void mostrar2(Queue &storeRandom, int n)
-{
-	Stack temp;
-	Queue temp2; //en realidad todo se puede hacer con dos stacks pero tienen que usarse queues so wtv
-
-	for(int i = 0; i < n; i++)
+	Queue temp;
+	While(win)
 	{
-		for(int j = 0; j <= i; j++)
-		{
-			cout << storeRandom.Front();
-			temp.push(storeRandom.Front());
-			temp2.enQueue(storeRandom.deQueue());
-		}
-
-		if(comprobar(temp,(i + 1)))
-			cout << "muy bien" << endl;
-		else
-		{
-			cout << "perdiste" << endl;
-			return;
-		}
-
-		temp.startStack();
-
+		storeRandom.enQueue(dis(gen)); //guarda los numeros random dentro de el Stack NO ESTOY DEL TODO SEGURO QUE SI SE PUEDA HACER ESTO LOL
 		while(!storeRandom.isEmpty())
 		{
-			temp2.enQueue(storeRandom.deQueue());
-		}
-		while(!temp2.isEmpty())
-		{
-			storeRandom.enQueue(temp2.deQueue());
-		}
-	}
-}
-
-//este metodo imprime los numeros que estan en orden (con GUI deberia prender los botones)
-void mostrar(Stack &storeRandom, int n)
-{	
-	Stack temp;
-	for(int i = 0; i < n; i++)
-	{
-		for(int j = 0; j <= i; j++)
-		{
-    		cout << storeRandom.peek(); //aqui iria el metodo que se relacionaria con el gui en vez de imprimir se mandaria a prender un boton
-    		temp.push(storeRandom.pop());
+    		cout << storeRandom.Front(); //aqui iria el metodo que se relacionaria con el gui en vez de imprimir se mandaria a prender un boton
+    		temp.enQueue(storeRandom.deQueue());
 		}
 		while(!temp.isEmpty())
 		{
-			storeRandom.push(temp.pop());
+			storeRandom.enQueue(temp.deQueue());
 		}
        	cout << "tu turno pon los numeros que son en el orden correcto" << endl;
-    	if (comprobar(storeRandom,(i +1))) // mandar a pedir los numeros o en el caso ya con gui que la persona haga click a las cosas
-	   		cout << "muy bien" << endl; 
+    	if (comprobar(storeRandom) // mandar a pedir los numeros o en el caso ya con gui que la persona haga click a las cosas
+	   		score++;
     	else
     	{
     		cout << "perdiste" << endl;
-    		return;
+    		win = false;
     	}
 	}
+	return score;
 }
 
 
 //aqui es donde se reciviria el input de parte del GUI y se comprobaria si esta bien o mal
-bool comprobar(Stack &storeRandom, int n)
+bool comprobar(Queue &storeRandom)
 {
-	Stack temp
+	Queue temp;
 	int x;
-	for(int i = 0; i < n; i++)
+	while(!storeRandom.isEmpty())
 	{
 		cin >> x; // aqui iria la relacion del click con un numero, este metodo regresaria un numero que se guardaria en equis algo asi x = metodocongui(); 
-		if(x != storeRandom.peek())
+		if(x != storeRandom.Front())
 		{
 			while(!temp.isEmpty())
 			{
-				storeRandom.push(temp.pop());
+				storeRandom.enQueue(temp.deQueue());
 			}
 			return false; //esto haria que en cuanto se equivoke la persona perderia 
 		}
-		temp.push(storeRandom.pop());
+		temp.enQueue(storeRandom.deQueue());
 	}
 	while(!temp.isEmpty())
 	{
-		storeRandom.push(temp.pop());
+		storeRandom.enQueue(temp.deQueue());
 	}
 	return true;
 }
