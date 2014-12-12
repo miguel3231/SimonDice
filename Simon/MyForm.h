@@ -40,7 +40,9 @@ namespace Simon {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Button^  button4;
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+
 
 
 
@@ -65,78 +67,97 @@ namespace Simon {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Copperplate Gothic Bold", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(170, 45);
+			this->label1->ForeColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(131, 44);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(125, 30);
+			this->label1->Size = System::Drawing::Size(241, 41);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Simon Dice";
+			this->label1->Text = L"Simón Dice";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(13, 133);
+			this->button1->BackColor = System::Drawing::Color::Red;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(31, 116);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 41);
+			this->button1->Size = System::Drawing::Size(81, 57);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"Simon Clasico";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Text = L"Simón Clasico";
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(138, 133);
+			this->button2->BackColor = System::Drawing::Color::Lime;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::Color::White;
+			this->button2->Location = System::Drawing::Point(151, 116);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 41);
+			this->button2->Size = System::Drawing::Size(81, 57);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Simon Brinca";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Text = L"Simón Brinca";
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(269, 133);
+			this->button3->BackColor = System::Drawing::Color::Gold;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::Color::White;
+			this->button3->Location = System::Drawing::Point(261, 116);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 41);
+			this->button3->Size = System::Drawing::Size(81, 57);
 			this->button3->TabIndex = 1;
-			this->button3->Text = L"Simon Sorpresa";
-			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Text = L"Simón Sorpresa";
+			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(389, 133);
+			this->button4->BackColor = System::Drawing::Color::Blue;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->ForeColor = System::Drawing::Color::White;
+			this->button4->Location = System::Drawing::Point(376, 116);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 41);
+			this->button4->Size = System::Drawing::Size(81, 57);
 			this->button4->TabIndex = 1;
-			this->button4->Text = L"Simon en Reversa";
-			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Text = L"Simón en Reversa";
+			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
-			// pictureBox1
+			// pictureBox2
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(138, 196);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(206, 115);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 2;
-			this->pictureBox1->TabStop = false;
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Location = System::Drawing::Point(184, 196);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(119, 115);
+			this->pictureBox2->TabIndex = 3;
+			this->pictureBox2->TabStop = false;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::Black;
 			this->ClientSize = System::Drawing::Size(493, 323);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -145,7 +166,7 @@ namespace Simon {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -174,6 +195,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 			 Tamano^ forma = gcnew Tamano(4);
 			 forma->Show();
+}
+private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
