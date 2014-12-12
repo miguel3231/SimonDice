@@ -72,8 +72,7 @@ namespace Simon {
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button4->BackColor = System::Drawing::Color::Blue;
 			this->button4->Location = System::Drawing::Point(245, 190);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(63, 56);

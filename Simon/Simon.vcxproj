@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -71,14 +71,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="algo.h" />
+    <ClInclude Include="Bounce.h" />
+    <ClInclude Include="Bounce2.h" />
     <ClInclude Include="Clasico.h" />
+    <ClInclude Include="Clasico2.h" />
     <ClInclude Include="Inicio.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Node.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Rewind.h" />
+    <ClInclude Include="Rewind2.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Surprise.h" />
+    <ClInclude Include="Surprise2.h" />
     <ClInclude Include="Tamano.h" />
   </ItemGroup>
   <ItemGroup>
@@ -89,16 +96,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bounce.cpp" />
+    <ClCompile Include="Bounce2.cpp" />
     <ClCompile Include="Clasico.cpp" />
+    <ClCompile Include="Clasico2.cpp" />
     <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Rewind.cpp" />
+    <ClCompile Include="Rewind2.cpp" />
+    <ClCompile Include="SimonDice.cpp" />
+    <ClCompile Include="Surprise.cpp" />
+    <ClCompile Include="Surprise2.cpp" />
     <ClCompile Include="Tamano.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Bounce.resx" />
+    <EmbeddedResource Include="Bounce2.resx" />
     <EmbeddedResource Include="Clasico.resx" />
+    <EmbeddedResource Include="Clasico2.resx" />
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rewind.resx" />
+    <EmbeddedResource Include="Rewind2.resx" />
+    <EmbeddedResource Include="Surprise.resx" />
+    <EmbeddedResource Include="Surprise2.resx" />
     <EmbeddedResource Include="Tamano.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

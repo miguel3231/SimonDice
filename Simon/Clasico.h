@@ -4,7 +4,7 @@
 #include "Queue.h"
 #include <random>
 #include <chrono>
-#include <thread>
+//#include <thread>
 
 
 namespace Simon {
@@ -55,7 +55,7 @@ namespace Simon {
 					case 1:
 						 this->button1->BackColor = System::Drawing::Color::Black;
 						 std::chrono::milliseconds dura( 2000 );
-						 std::this_thread::sleep_for( dura );
+						// std::this_thread::sleep_for( dura );
 						  this->button1->BackColor = System::Drawing::Color::Red;
 
 						break;
@@ -78,7 +78,23 @@ namespace Simon {
 			}
 			return score;
 		} //ya esta
-		bool comprobar(Queue<int> &storeRandom); // ya esta
+		bool comprobar(Queue<int> &storeRandom) // ya esta
+		{
+			Queue<int> temp;
+			int x;
+			while (!storeRandom.isEmpty())
+			{
+				cin >> x; // aqui iria la relacion del click con un numero, este metodo regresaria un numero que se guardaria en equis algo asi x = metodocongui(); 
+				if (x != storeRandom.Front())
+					return false; //esto haria que en cuanto se equivoke la persona perderia 
+				temp.enQueue(storeRandom.deQueue());
+			}
+			while (!temp.isEmpty())
+			{
+				storeRandom.enQueue(temp.deQueue());
+			}
+			return true;
+		}
 		
 	protected:
 		/// <summary>
@@ -97,12 +113,14 @@ namespace Simon {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::Timer^  timer1;
+	private: System::ComponentModel::IContainer^  components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -111,11 +129,13 @@ namespace Simon {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// label1
@@ -167,6 +187,10 @@ namespace Simon {
 			this->button4->TabIndex = 1;
 			this->button4->UseVisualStyleBackColor = false;
 			// 
+			// timer1
+			// 
+			this->timer1->Tick += gcnew System::EventHandler(this, &Clasico::timer1_Tick);
+			// 
 			// Clasico
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -184,24 +208,19 @@ namespace Simon {
 			this->PerformLayout();
 
 		}
-<<<<<<< HEAD
-#pragma endregion
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 button4->Location = System::Drawing::Point(202, 151);
-	}
-private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
-}
-};
-=======
+
 	#pragma endregion
 		private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 					 button4->Location = System::Drawing::Point(202, 151);
 		}
 		private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
+					 juego1(4);
 		}
 		
 		
-	};
+	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 
->>>>>>> origin/master
+
 }
