@@ -7,6 +7,7 @@
 //#include <thread>
 
 
+
 namespace Simon {
 
 	using namespace System;
@@ -82,7 +83,18 @@ namespace Simon {
 		{
 			this->Rojo1->Start();
 		}
-		
+		void blinkGreen()
+		{
+			this->Verde1->Start();
+		}
+		void blinkYellow()
+		{
+			this ->Amarillo1->Start();
+		}
+		void blinkBlue()
+		{
+			this->Azul1->Start();
+		}
 		bool comprobar(Queue<int> &storeRandom) // ya esta
 		{
 			Queue<int> temp;
@@ -199,8 +211,7 @@ namespace Simon {
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button4->BackColor = System::Drawing::Color::Blue;
 			this->button4->Location = System::Drawing::Point(232, 171);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(63, 56);
@@ -209,12 +220,43 @@ namespace Simon {
 			// 
 			// Rojo1
 			// 
-			this->Rojo1->Interval = 1000;
+			this->Rojo1->Interval = 700;
 			this->Rojo1->Tick += gcnew System::EventHandler(this, &Clasico::timer1_Tick);
 			// 
 			// Rojo2
 			// 
+			this->Rojo2->Interval = 1000;
 			this->Rojo2->Tick += gcnew System::EventHandler(this, &Clasico::Rojo2_Tick);
+			// 
+			// Verde1
+			// 
+			this->Verde1->Interval = 1000;
+			this->Verde1->Tick += gcnew System::EventHandler(this, &Clasico::Verde1_Tick);
+			// 
+			// Verde2
+			// 
+			this->Verde2->Interval = 1000;
+			this->Verde2->Tick += gcnew System::EventHandler(this, &Clasico::Verde2_Tick);
+			// 
+			// Amarillo1
+			// 
+			this->Amarillo1->Interval = 1000;
+			this->Amarillo1->Tick += gcnew System::EventHandler(this, &Clasico::Amarillo1_Tick);
+			// 
+			// Amarillo2
+			// 
+			this->Amarillo2->Interval = 1000;
+			this->Amarillo2->Tick += gcnew System::EventHandler(this, &Clasico::Amarillo2_Tick);
+			// 
+			// Azul1
+			// 
+			this->Azul1->Interval = 1000;
+			this->Azul1->Tick += gcnew System::EventHandler(this, &Clasico::Azul1_Tick);
+			// 
+			// Azul2
+			// 
+			this->Azul2->Interval = 1000;
+			this->Azul2->Tick += gcnew System::EventHandler(this, &Clasico::Azul2_Tick);
 			// 
 			// Clasico
 			// 
@@ -240,9 +282,15 @@ namespace Simon {
 		}
 		private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
 					 blinkRed();
-					 
-					 
+					 Threading::Thread::Sleep(2000);
+					 blinkGreen();
 					
+					 blinkYellow();
+					 
+					 blinkBlue();
+					 
+					 
+					 
 		}
 		
 		
@@ -250,10 +298,38 @@ namespace Simon {
 				 this->button1->BackColor = System::Drawing::Color::MistyRose;
 				 this->Rojo2->Start();
 	}
-private: System::Void Rojo2_Tick(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void Rojo2_Tick(System::Object^  sender, System::EventArgs^  e) {
 			 this->button1->BackColor = System::Drawing::Color::Red;
 			 this->Rojo1->Stop();
 			 this->Rojo2->Stop();
+	}
+
+private: System::Void Verde1_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button2->BackColor = System::Drawing::Color::MintCream;
+			 this->Verde2->Start();
+}
+private: System::Void Verde2_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button2->BackColor = System::Drawing::Color::Lime;
+			 this->Verde1->Stop();
+			 this->Verde2->Stop();
+}
+private: System::Void Amarillo1_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button3->BackColor = System::Drawing::Color::LightYellow;
+			 this->Amarillo2->Start();
+}
+private: System::Void Amarillo2_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button3->BackColor = System::Drawing::Color::Yellow;
+			 this->Amarillo1->Stop();
+			 this->Amarillo2->Stop();
+}
+private: System::Void Azul1_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button4->BackColor = System::Drawing::Color::LightBlue;
+			 this->Azul2->Start();
+}
+private: System::Void Azul2_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button4->BackColor = System::Drawing::Color::Blue;
+			 this->Azul1->Stop();
+			 this->Azul2->Stop();
 }
 };
 
