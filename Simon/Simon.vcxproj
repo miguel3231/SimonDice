@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3917E344-B89A-4772-8DD1-DECC28F58FBE}</ProjectGuid>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Simon</RootNamespace>
   </PropertyGroup>
@@ -20,7 +20,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v100</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -57,7 +57,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies />
       <EntryPointSymbol>main</EntryPointSymbol>
-      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,37 +71,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="algo.h" />
-    <ClInclude Include="Bounce.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Bounce2.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Clasico.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Clasico2.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="Clasico.h" />
+    <ClInclude Include="Inicio.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Node.h" />
-    <ClInclude Include="Rewind.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Rewind2.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Surprise.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Surprise2.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Tamano.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Tamano.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -112,48 +89,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bounce.cpp" />
-    <ClCompile Include="Bounce2.cpp" />
     <ClCompile Include="Clasico.cpp" />
-    <ClCompile Include="Clasico2.cpp" />
+    <ClCompile Include="Inicio.cpp" />
     <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="Rewind.cpp" />
-    <ClCompile Include="Rewind2.cpp" />
-    <ClCompile Include="Surprise.cpp" />
-    <ClCompile Include="Surprise2.cpp" />
     <ClCompile Include="Tamano.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Bounce.resx">
-      <DependentUpon>Bounce.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bounce2.resx">
-      <DependentUpon>Bounce2.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clasico.resx">
-      <DependentUpon>Clasico.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clasico2.resx">
-      <DependentUpon>Clasico2.h</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Clasico.resx" />
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Rewind.resx">
-      <DependentUpon>Rewind.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Rewind2.resx">
-      <DependentUpon>Rewind2.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Surprise.resx">
-      <DependentUpon>Surprise.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Surprise2.resx">
-      <DependentUpon>Surprise2.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tamano.resx">
-      <DependentUpon>Tamano.h</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Tamano.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
