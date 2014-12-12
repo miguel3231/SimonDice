@@ -8,41 +8,12 @@ using namespace std;
 //funciones
 void juego1(int n); //ya esta
 void juego2(int n);
-void mostrar(Queue<int> &storeRandom, int n); //ya esta
-void mostrar2(Queue<int> &storeRandom, int n);
+int mostrar(Queue<int> &storeRandom, int n); //ya esta
+int mostrar2(Stack<int> &storeRandom, int n);
 bool comprobar(Queue<int> &storeRandom); // ya esta
+bool comprobar2(Stack<int> &storeRandom);
 
-int main()
-{
-	int x; 
-	do
-	{
-		cout << "1) 2x2" << endl;
-		cout << "2) 4x4" << endl;
-		cout << "3) simon Reversa 2x2" << endl;
-		cout << "4) simon Reversa 4x4" << endl;
-		cout << "5) salir" << endl;
-		cin >> x;
-		switch(x)
-		{
-			case 1: juego1(4);
-					break;
-			case 2: juego1(16);
-					break;
-			case 3:
-					juego2(4);
-					break;
-			case 4: 
-					juego2(16);
-					break;
-			case 5:
-					cout << "adios" << endl;
-			default:
-					cout << "valor erroneo" << endl;
-		}
 
-	}while(x != 5);
-}
 
 
 void juego1(int n)
@@ -93,7 +64,7 @@ int mostrar(Queue<int> &storeRandom, int n)
 			storeRandom.enQueue(temp.deQueue());
 		}
        	cout << "tu turno pon los numeros que son en el orden correcto" << endl;
-    	if (comprobar(storeRandom) // mandar a pedir los numeros o en el caso ya con gui que la persona haga click a las cosas
+    	if (comprobar(storeRandom)) // mandar a pedir los numeros o en el caso ya con gui que la persona haga click a las cosas
 	   		score++;
     	else
     	{
@@ -159,10 +130,10 @@ bool comprobar2(Stack<int> &storeRandom)
 {
 	Stack<int> temp;
 	int x;
-	while(!storeRandom.isEmpty)
+	while(!storeRandom.isEmpty())
 	{
 		cin >> x; 
-		if(x !- storeRandom.peek())
+		if(x != storeRandom.peek())
 			return false;
 		temp.push(storeRandom.pop());
 	}
