@@ -78,6 +78,11 @@ namespace Simon {
 			}
 			return score;
 		} //ya esta
+		void blinkRed()
+		{
+			this->Rojo1->Start();
+		}
+		
 		bool comprobar(Queue<int> &storeRandom) // ya esta
 		{
 			Queue<int> temp;
@@ -113,7 +118,15 @@ namespace Simon {
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Button^  button4;
-	private: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::Timer^  Rojo1;
+	private: System::Windows::Forms::Timer^  Rojo2;
+	private: System::Windows::Forms::Timer^  Verde1;
+	private: System::Windows::Forms::Timer^  Verde2;
+	private: System::Windows::Forms::Timer^  Amarillo1;
+	private: System::Windows::Forms::Timer^  Amarillo2;
+	private: System::Windows::Forms::Timer^  Azul1;
+	private: System::Windows::Forms::Timer^  Azul2;
+
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -135,7 +148,14 @@ namespace Simon {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Rojo1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Rojo2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Verde1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Verde2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Amarillo1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Amarillo2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Azul1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->Azul2 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// label1
@@ -187,9 +207,14 @@ namespace Simon {
 			this->button4->TabIndex = 1;
 			this->button4->UseVisualStyleBackColor = false;
 			// 
-			// timer1
+			// Rojo1
 			// 
-			this->timer1->Tick += gcnew System::EventHandler(this, &Clasico::timer1_Tick);
+			this->Rojo1->Interval = 1000;
+			this->Rojo1->Tick += gcnew System::EventHandler(this, &Clasico::timer1_Tick);
+			// 
+			// Rojo2
+			// 
+			this->Rojo2->Tick += gcnew System::EventHandler(this, &Clasico::Rojo2_Tick);
 			// 
 			// Clasico
 			// 
@@ -214,12 +239,22 @@ namespace Simon {
 					 button4->Location = System::Drawing::Point(202, 151);
 		}
 		private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
-					 juego1(4);
+					 blinkRed();
+					 
+					 
+					
 		}
 		
 		
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+				 this->button1->BackColor = System::Drawing::Color::MistyRose;
+				 this->Rojo2->Start();
 	}
+private: System::Void Rojo2_Tick(System::Object^  sender, System::EventArgs^  e) {
+			 this->button1->BackColor = System::Drawing::Color::Red;
+			 this->Rojo1->Stop();
+			 this->Rojo2->Stop();
+}
 };
 
 
