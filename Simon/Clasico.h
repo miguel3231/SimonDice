@@ -1,14 +1,21 @@
 #pragma once
 #include <iostream>
+#include "Stack.h"
+#include "Queue.h"
+#include <random>
+#include <chrono>
+#include <thread>
+
 
 namespace Simon {
 
 	using namespace System;
 	using namespace System::ComponentModel;
-	using namespace System::Collections;
+	//using namespace System::Collections;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 
 	/// <summary>
 	/// Summary for Clasico
@@ -23,7 +30,56 @@ namespace Simon {
 			//TODO: Add the constructor code here
 			//
 		}
+		void juego1(int n)
+		{
+			int score;
+			Queue<int> storeRandom; //Stack donde se guardaran los numeros
+			score = mostrar(storeRandom,n); 
+			storeRandom.startQueue();
+		}//ya esta
+		int mostrar(Queue<int> &storeRandom, int n)
+		{	
+			int score = 0;
+			bool win = true;
+			std::random_device rd; //falta comprobar que el random number funcione bien 
+			std::mt19937 gen(rd());
+			std::uniform_int_distribution<> dis(1, n); //genera un numero random de entre 1 y n 
+			Queue<int> temp;
+			while(win)
+			{
+				storeRandom.enQueue(dis(gen)); //guarda los numeros random dentro de el Stack NO ESTOY DEL TODO SEGURO QUE SI SE PUEDA HACER ESTO LOL
+				while(!storeRandom.isEmpty())
+				{
+    				
+					switch(storeRandom.Front()){
+					case 1:
+						 this->button1->BackColor = System::Drawing::Color::Black;
+						 std::chrono::milliseconds dura( 2000 );
+						 std::this_thread::sleep_for( dura );
+						  this->button1->BackColor = System::Drawing::Color::Red;
 
+						break;
+					
+					}//aqui iria el metodo que se relacionaria con el gui en vez de imprimir se mandaria a prender un boton
+    				temp.enQueue(storeRandom.deQueue());
+				}
+				while(!temp.isEmpty())
+				{
+					storeRandom.enQueue(temp.deQueue());
+				}
+       			cout << "tu turno pon los numeros que son en el orden correcto" << endl;
+    			if (comprobar(storeRandom)) // mandar a pedir los numeros o en el caso ya con gui que la persona haga click a las cosas
+	   				score++;
+    			else
+    			{
+    				cout << "perdiste" << endl;
+    				win = false;
+    			}
+			}
+			return score;
+		} //ya esta
+		bool comprobar(Queue<int> &storeRandom); // ya esta
+		
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -136,6 +192,7 @@ namespace Simon {
 			this->PerformLayout();
 
 		}
+<<<<<<< HEAD
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 rojo->Location = System::Drawing::Point(202, 151);
@@ -143,4 +200,16 @@ namespace Simon {
 private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
+=======
+	#pragma endregion
+		private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+					 button4->Location = System::Drawing::Point(202, 151);
+		}
+		private: System::Void Clasico_Load(System::Object^  sender, System::EventArgs^  e) {
+		}
+		
+		
+	};
+
+>>>>>>> origin/master
 }
